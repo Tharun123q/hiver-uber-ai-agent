@@ -1,0 +1,62 @@
+project:
+  name: "UberSupport-AI-Agent"
+  version: "1.0.0"
+  random_seed: 42
+
+paths:
+  raw_data: "twcs.csv"
+  processed_data: "data/processed_data.csv"
+  processed_data_root: "processed_data.csv"
+  golden_dataset: "data/golden_dataset.csv"
+  retrieval_index: "artifacts/retrieval_index.pkl"
+  classifier_model: "artifacts/classifier_model.pkl"
+  primary_eval: "artifacts/primary_eval.json"
+  primary_eval_root: "primary_eval.json"
+  review_payload: "artifacts/review_payload.json"
+  review_payload_root: "review_payload.json"
+  final_audit_report: "artifacts/final_audit_report.json"
+  final_audit_report_root: "final_audit_report.json"
+  metrics: "artifacts/metrics.json"
+  metrics_root: "metrics.json"
+  classification_report: "artifacts/classification_report.json"
+  classification_report_root: "classification_report.json"
+  confusion_matrix: "artifacts/confusion_matrix.png"
+  confusion_matrix_root: "confusion_matrix.png"
+  failure_analysis: "reports/failure_analysis.md"
+  failure_analysis_root: "failure_analysis.md"
+  decision_log: "docs/decision_log.md"
+  decision_log_root: "decision_log.md"
+  report: "reports/report.md"
+  report_root: "report.md"
+
+preprocessing:
+  target_conversations: 950
+  min_customer_len: 20
+  min_reply_len: 20
+  brand_id: "Uber_Support"
+
+retrieval:
+  top_k: 3
+  similarity_threshold: 0.15
+  ngram_range: [1, 2]
+  max_features: 5000
+
+classifier:
+  test_size: 0.25
+  min_samples_per_intent: 10
+  ngram_range: [1, 2]
+  max_features: 8000
+  confidence_threshold: 0.65
+
+escalation:
+  low_confidence_threshold: 0.55
+  high_urgency_intents:
+    - "Safety Concern"
+    - "Account Access / Security"
+  review_billing_threshold: 0.60
+
+reviewer:
+  host: "127.0.0.1"
+  port: 8000
+  audit_endpoint: "http://127.0.0.1:8000/audit"
+  health_endpoint: "http://127.0.0.1:8000/health"

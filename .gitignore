@@ -1,0 +1,75 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Packaging and build output
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Test and coverage output
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.mypy_cache/
+.ruff_cache/
+
+# IDE and editor files
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.swp
+*.swo
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+logs/
+
+# Raw and local datasets
+# Keep the repository's curated datasets tracked; ignore newly uploaded raw files.
+data/raw/
+*.csv
+!data/golden_dataset.csv
+!data/processed_data.csv
+!data/labeled_processed_data.csv
+
+# Generated models, indexes, reports, and evaluation artifacts
+artifacts/*.pkl
+artifacts/*.json
+artifacts/*.png
+reports/report.md
+reports/failure_analysis.md
+reports/misleading_numbers.md
+
+# Root-level generated copies
+/processed_data.csv
+/primary_eval.json
+/review_payload.json
+/final_audit_report.json
+/metrics.json
+/classification_report.json
+/confusion_matrix.png
+/failure_analysis.md
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
